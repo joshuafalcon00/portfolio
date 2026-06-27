@@ -35,14 +35,19 @@
     .photo-fan .folder{position:relative;z-index:6;display:flex;flex-direction:column;align-items:center;gap:12px;transition:transform .4s var(--ease-spring);}
     .photo-fan.is-open .folder{transform:translateY(-10px) rotate(-3deg) scale(1.05);}
     .photo-fan .ph{position:absolute;left:50%;top:46%;width:288px;height:162px;margin:-81px 0 0 -144px;opacity:0;transform:translate(0,46px) rotate(0deg) scale(0.26);transition:transform .95s var(--ease-out),opacity .6s var(--ease-soft) .12s;z-index:3;pointer-events:none;cursor:pointer;}
+    .photo-fan .ph-7,.photo-fan .ph-8,.photo-fan .ph-9,.photo-fan .ph-10{width:84px;height:240px;margin:-120px 0 0 -42px;}
     .photo-fan.is-open .ph{opacity:1;pointer-events:auto;}
-    .photo-fan .ph-1{transition-delay:0s}.photo-fan .ph-2{transition-delay:.08s}.photo-fan .ph-3{transition-delay:.16s}.photo-fan .ph-4{transition-delay:.24s}.photo-fan .ph-5{transition-delay:.32s}.photo-fan .ph-6{transition-delay:.4s}
-    .photo-fan.is-open .ph-1{transform:translate(-244px,-156px) rotate(-8deg) scale(0.9);z-index:4;}
-    .photo-fan.is-open .ph-2{transform:translate(238px,-148px) rotate(7deg) scale(0.92);z-index:4;}
-    .photo-fan.is-open .ph-3{transform:translate(-312px,44px) rotate(-5deg) scale(0.84);z-index:3;}
-    .photo-fan.is-open .ph-4{transform:translate(312px,52px) rotate(6deg) scale(0.84);z-index:3;}
-    .photo-fan.is-open .ph-5{transform:translate(-186px,196px) rotate(5deg) scale(0.88);z-index:5;}
-    .photo-fan.is-open .ph-6{transform:translate(196px,188px) rotate(-6deg) scale(0.9);z-index:5;}
+    .photo-fan .ph-1{transition-delay:0s}.photo-fan .ph-2{transition-delay:.08s}.photo-fan .ph-3{transition-delay:.16s}.photo-fan .ph-4{transition-delay:.24s}.photo-fan .ph-5{transition-delay:.32s}.photo-fan .ph-6{transition-delay:.4s}.photo-fan .ph-7{transition-delay:.48s}.photo-fan .ph-8{transition-delay:.56s}.photo-fan .ph-9{transition-delay:.64s}.photo-fan .ph-10{transition-delay:.72s}
+    .photo-fan.is-open .ph-1{transform:translate(-300px,-200px) rotate(-4deg) scale(0.9);z-index:4;}
+    .photo-fan.is-open .ph-2{transform:translate(300px,-200px) rotate(4deg) scale(0.9);z-index:4;}
+    .photo-fan.is-open .ph-3{transform:translate(-340px,0px) rotate(-3deg) scale(0.9);z-index:3;}
+    .photo-fan.is-open .ph-4{transform:translate(340px,0px) rotate(3deg) scale(0.9);z-index:3;}
+    .photo-fan.is-open .ph-5{transform:translate(-300px,200px) rotate(4deg) scale(0.9);z-index:5;}
+    .photo-fan.is-open .ph-6{transform:translate(300px,200px) rotate(-4deg) scale(0.9);z-index:5;}
+    .photo-fan.is-open .ph-7{transform:translate(-95px,-265px) rotate(-5deg) scale(0.92);z-index:5;}
+    .photo-fan.is-open .ph-8{transform:translate(95px,-265px) rotate(5deg) scale(0.92);z-index:5;}
+    .photo-fan.is-open .ph-9{transform:translate(-95px,265px) rotate(5deg) scale(0.92);z-index:5;}
+    .photo-fan.is-open .ph-10{transform:translate(95px,265px) rotate(-5deg) scale(0.92);z-index:5;}
     .vcard{cursor:pointer;transition:opacity .4s var(--ease-out);}
     .vcard .vinner{transition:transform .45s var(--ease-out);transform-origin:center;}
     .vcard:hover{opacity:1!important;z-index:40!important;}
@@ -52,36 +57,17 @@
     .wt-thumb:hover{transform:rotate(0deg) translateY(-7px) scale(1.07)!important;z-index:6;position:relative;}
     .wt-thumb:hover .wt-frame{box-shadow:var(--shadow-lift);border-color:var(--gold-500);}
     .wt-thumb:hover .wt-frame > div{filter:saturate(1.05);}
-    /* Work-tile previews: a COMPRESSED deck that riffles open on hover (Tile 1 & 2).
-       JS sets --n (card count) and --i (index) so the pile/fan stays centred for ANY count. */
-    .wt-deck{position:relative;height:190px;margin-top:14px;}
-    .wt-deck .wt-thumb{position:absolute!important;left:8px;top:6px;margin:0!important;--i:0;--n:1;--spread:0;--gap:118px;
-      transition:transform .55s var(--ease-spring)!important;will-change:transform;
-      transform:translateX(calc(var(--i) * (9px + var(--spread) * var(--gap)))) rotate(calc(var(--i) * (0.6deg + var(--spread) * 2.4deg)))!important;}
-    /* index + count in pure CSS (survives runtime re-renders) so the fan is always symmetric */
-    .wt-deck{--n:6;}
-    .wt-deck:has(.wt-thumb:nth-child(3):last-child){--n:3;}
-    .wt-deck:has(.wt-thumb:nth-child(4):last-child){--n:4;}
-    .wt-deck:has(.wt-thumb:nth-child(5):last-child){--n:5;}
-    .wt-deck:has(.wt-thumb:nth-child(6):last-child){--n:6;}
-    .wt-deck:has(.wt-thumb:nth-child(7):last-child){--n:7;}
-    .wt-deck:has(.wt-thumb:nth-child(8):last-child){--n:8;}
-    .wt-deck .wt-thumb:nth-child(1){--i:0;}
-    .wt-deck .wt-thumb:nth-child(2){--i:1;}
-    .wt-deck .wt-thumb:nth-child(3){--i:2;}
-    .wt-deck .wt-thumb:nth-child(4){--i:3;}
-    .wt-deck .wt-thumb:nth-child(5){--i:4;}
-    .wt-deck .wt-thumb:nth-child(6){--i:5;}
-    .wt-deck .wt-thumb:nth-child(7){--i:6;}
-    .wt-deck .wt-thumb:nth-child(8){--i:7;}
-    .wt-deck:hover .wt-thumb{--spread:1;}
-    .wt-deck .wt-thumb:hover{z-index:30!important;}
-    .wt-deck::after{content:"hover to riffle";position:absolute;left:8px;bottom:-12px;font-family:var(--small-font,var(--font-body));font-weight:600;text-transform:uppercase;letter-spacing:0.16em;font-size:10px;color:var(--ink-400);opacity:1;transition:opacity .3s;pointer-events:none;}
-    .wt-deck:hover::after{opacity:0;}
-    @media (max-width:820px){
-      .wt-deck{height:auto;display:flex;flex-wrap:wrap;gap:12px;}
-      .wt-deck .wt-thumb{position:static!important;transform:none!important;}
-    }
+    /* Work-tile previews: a clickable folder that opens to reveal its screenshots
+       in a horizontal row (same concept as the Photos "my other works" folder). */
+    .wt-folderset{margin-top:16px;}
+    .wt-folder{display:inline-flex;align-items:center;gap:13px;cursor:pointer;background:var(--paper-000);border:1.5px dashed var(--line-ink);border-radius:var(--radius-sketch-2);padding:12px 18px;color:var(--ink-900);font-family:var(--font-hand);font-weight:700;font-size:16px;line-height:1;transition:border-color .25s var(--ease-soft),background .25s var(--ease-soft),transform .25s var(--ease-spring);}
+    .wt-folder:hover{border-color:var(--gold-500);background:var(--paper-200);transform:translateY(-2px);}
+    .wt-folder .wt-folder-ic{flex:0 0 auto;color:var(--ink-900);}
+    .wt-folder .wt-folder-hint{font-family:var(--small-font,var(--font-body));font-weight:600;text-transform:uppercase;letter-spacing:0.16em;font-size:10px;color:var(--ink-500);}
+    .wt-folderset.is-open .wt-folder{border-style:solid;border-color:var(--gold-500);background:var(--paper-200);}
+    .wt-reveal{display:flex;flex-wrap:wrap;align-items:flex-start;gap:16px;max-height:0;opacity:0;overflow:hidden;transition:max-height .6s var(--ease-out),opacity .45s var(--ease-soft);}
+    .wt-folderset.is-open .wt-reveal{max-height:900px;opacity:1;overflow:hidden;padding:16px 14px 16px;}
+    .wt-reveal .wt-thumb{flex:0 0 auto;}
     .photo-fan .ph .ph-frame{transition:transform .35s var(--ease-spring),box-shadow .35s var(--ease-soft),border-color .35s var(--ease-soft);}
     .photo-fan.is-open .ph:hover{z-index:9;}
     .photo-fan .ph:hover .ph-frame{transform:scale(1.08);box-shadow:var(--shadow-lift);border-color:var(--gold-500);}
@@ -137,22 +123,24 @@
       #about-photo { width: 280px !important; height: 350px !important; }
       #resume-preview { width: 300px !important; height: 392px !important; }
       #doodle-face { width: 200px !important; height: 200px !important; }
-      .m-fan-wrap { min-height: 470px !important; }
+      .m-fan-wrap { min-height: 560px !important; }
       .m-cf { height: 340px !important; }
       .lb-arrow { width: 42px !important; height: 42px !important; }
       .photo-fan .ph { width: 150px !important; height: 84px !important; margin: -42px 0 0 -75px !important; }
-      .photo-fan.is-open .ph-1 { transform: translate(-104px,-96px) rotate(-8deg) scale(0.6) !important; }
-      .photo-fan.is-open .ph-2 { transform: translate(104px,-90px) rotate(7deg) scale(0.62) !important; }
-      .photo-fan.is-open .ph-3 { transform: translate(-128px,30px) rotate(-5deg) scale(0.56) !important; }
-      .photo-fan.is-open .ph-4 { transform: translate(128px,36px) rotate(6deg) scale(0.56) !important; }
-      .photo-fan.is-open .ph-5 { transform: translate(-86px,118px) rotate(5deg) scale(0.58) !important; }
-      .photo-fan.is-open .ph-6 { transform: translate(92px,112px) rotate(-6deg) scale(0.6) !important; }
+      .photo-fan.is-open .ph-1 { transform: translate(-90px,-140px) rotate(-4deg) scale(0.5) !important; }
+      .photo-fan.is-open .ph-2 { transform: translate(90px,-140px) rotate(4deg) scale(0.5) !important; }
+      .photo-fan.is-open .ph-3 { transform: translate(-105px,0px) rotate(-3deg) scale(0.5) !important; }
+      .photo-fan.is-open .ph-4 { transform: translate(105px,0px) rotate(3deg) scale(0.5) !important; }
+      .photo-fan.is-open .ph-5 { transform: translate(-90px,140px) rotate(4deg) scale(0.5) !important; }
+      .photo-fan.is-open .ph-6 { transform: translate(90px,140px) rotate(-4deg) scale(0.5) !important; }
+      .photo-fan .ph-7, .photo-fan .ph-8, .photo-fan .ph-9, .photo-fan .ph-10 { width:56px !important; height:150px !important; margin:-75px 0 0 -28px !important; }
+      .photo-fan.is-open .ph-7 { transform: translate(-44px,-185px) rotate(-5deg) scale(0.5) !important; }
+      .photo-fan.is-open .ph-8 { transform: translate(44px,-185px) rotate(5deg) scale(0.5) !important; }
+      .photo-fan.is-open .ph-9 { transform: translate(-44px,185px) rotate(5deg) scale(0.5) !important; }
+      .photo-fan.is-open .ph-10 { transform: translate(44px,185px) rotate(-5deg) scale(0.5) !important; }
       /* cover-flow: smaller cards so neighbours peek instead of overflowing */
       .vcard { width: 188px !important; }
       /* work-tile decks: stack/wrap centred; the riffle is a hover affordance, so drop the hint on touch */
-      .wt-deck { justify-content: center !important; align-items: flex-start !important; }
-      .wt-deck::after { display: none !important; }
-      .wt-deck .wt-frame > div { max-width: 100% !important; }
       /* keep tilted skill bands + their shadows from forcing the page wider */
       .sk-band { box-shadow: 0 8px 22px -16px rgba(21,18,14,.5) !important; }
     }
@@ -253,11 +241,11 @@
 
       <div data-reveal="" data-anim="left" style="">
         <div style="font-family:var(--small-font,var(--font-body));font-weight:600;text-transform:uppercase;letter-spacing:0.22em;font-size:12px;color:var(--ink-500);margin-bottom:18px;">a little about me</div>
-        <h2 style="font-family:var(--font-hand);font-weight:700;font-size:42px;line-height:1.12;color:var(--text-strong);margin:0;">hi — i'm Joshua, and I make
-          <span style="position:relative;display:inline-block;">stories
+        <h2 style="font-family:var(--font-hand);font-weight:700;font-size:42px;line-height:1.12;color:var(--text-strong);margin:0;">I create
+          <span style="position:relative;display:inline-block;">scroll-stopping
             <svg viewBox="0 0 120 50" preserveAspectRatio="none" style="position:absolute;left:-10px;top:-7px;width:calc(100% + 20px);height:calc(100% + 14px);overflow:visible;color:var(--gold-500);"><path d="M14 25 C14 8 106 6 110 24 C114 42 60 48 30 44 C8 41 6 16 24 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"></path></svg>
           </span>
-          feel effortless.</h2>
+          content edits and handle virtual tasks that keep your business moving.</h2>
         <p style="font: var(--type-body); color: var(--text-body); margin: 26px 0 0; max-width: 48ch; text-align: justify">I'm Joshua, a fresh Education graduate and video editor with 5 years of experience, now also working as a virtual assistant. I edit scroll-stopping videos for social media like Reels, TikToks, YouTube, and promotional ads, and handle back-office tasks that keep businesses organized and running smoothly. I also have foundational bookkeeping skills in QuickBooks Online gained through hands-on simulations.</p>
         <p style="font: var(--type-body); color: var(--text-body); margin: 18px 0 0; max-width: 48ch; text-align: justify">I work best independently, thriving in non-voice, task-driven environments where accuracy and consistency matter. I take pride in delivering work on time, keeping things organized, and making sure every client walks away satisfied. Whether it's a tight deadline or a detailed data entry task, I show up with integrity and get it done.</p>
         <div style="margin-top:24px;color:var(--ink-500);"><x-import component-from-global-scope="SketchbookPortfolioDesignSystem_ff03c2.Doodle" name="arrow" size="96" draw="{{ true }}" hint-size="96px,64px"></x-import></div>
@@ -379,7 +367,94 @@
       <div class="tc-title" style="font-family:'Jost',system-ui,sans-serif;font-weight:500;text-transform:uppercase;letter-spacing:0.34em;font-size:30px;color:var(--ink-900);margin-top:16px;padding-left:0.34em;">WORKS</div>
       <div style="font-family:'Jost',system-ui,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:0.3em;font-size:12px;color:var(--ink-500);margin-top:12px;padding-left:0.3em;">selected pieces</div>
     </div>
-    <p data-reveal="" data-delay="120" style="max-width:540px;margin:28px auto 0;font:var(--type-lead);color:var(--text-body);">A rotating shelf of reels I've cut. Tap the centered one to play it.</p>
+    <p data-reveal="" data-delay="120" style="max-width:540px;margin:28px auto 0;font:var(--type-lead);color:var(--text-body);">A few things I've made: case-study builds, reels I've cut, and other work.</p>
+  </div>
+
+  <!-- ============================ WORK TILES ============================ -->
+  <section style="max-width:1080px;margin:128px auto 0;padding:0 32px;">
+    <div data-reveal="" style="display:flex;align-items:flex-end;gap:18px;margin-bottom:40px;">
+      <h2 style="position:relative;font-family:var(--font-hand);font-weight:700;font-size:38px;color:var(--text-strong);margin:0;">Work Tiles
+        <span style="position:absolute;left:0;right:-6px;bottom:-10px;height:6px;color:var(--gold-500);"><x-import component-from-global-scope="SketchbookPortfolioDesignSystem_ff03c2.Doodle" name="squiggle" size="170" draw="{{ true }}" hint-size="170px,15px"></x-import></span>
+      </h2>
+      <span style="font-family:var(--small-font,var(--font-body));font-weight:600;text-transform:uppercase;letter-spacing:0.2em;font-size:12px;color:var(--ink-500);padding-bottom:8px;">case studies · tap a preview to view</span>
+    </div>
+  <article data-reveal="" style="background:var(--paper-000);border:2px solid var(--line-ink);border-radius:var(--radius-sketch);padding:34px 36px;margin-bottom:40px;">
+    <div style="font-family:'Jost',system-ui,sans-serif;text-transform:uppercase;letter-spacing:0.22em;font-size:12px;color:var(--ink-500);">Tile 1 — Practice Brand Site (Days 1–3)</div>
+    <h3 style="font-family:var(--font-hand);font-weight:700;font-size:30px;line-height:1.12;color:var(--text-strong);margin:10px 0 0;">Falcon Homes</h3>
+    <p style="font:var(--type-body);color:var(--text-body);margin:14px 0 0;max-width:74ch;">A full practice brand site built across Days 1–3 — landing page with working contact form, video hero product page, 3D scroll animation, and an admin dashboard.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:9px;margin-top:18px;"><x-import component-from-global-scope="SketchbookPortfolioDesignSystem_ff03c2.Tag" hint-size="auto,28px">Frontend design</x-import><x-import component-from-global-scope="SketchbookPortfolioDesignSystem_ff03c2.Tag" hint-size="auto,28px">3D / Motion</x-import><x-import component-from-global-scope="SketchbookPortfolioDesignSystem_ff03c2.Tag" hint-size="auto,28px">Automation</x-import><x-import component-from-global-scope="SketchbookPortfolioDesignSystem_ff03c2.Tag" hint-size="auto,28px">Back-end</x-import></div>
+    <div style="margin-top:24px;padding-top:22px;border-top:1.5px dashed var(--line-hairline);">
+      <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;">
+        <span style="font-family:var(--small-font,var(--font-body));font-weight:600;text-transform:uppercase;letter-spacing:0.16em;font-size:11px;color:var(--ink-500);flex:0 0 auto;">Live URL</span>
+        <a href="https://falconhomes-landing-page.vercel.app" target="_blank" rel="noopener" style="font-family:var(--font-hand);font-weight:600;font-size:15px;color:var(--ink-900);text-decoration:none;border-bottom:2px solid var(--gold-400);word-break:break-all;">https://falconhomes-landing-page.vercel.app</a>
+      </div>
+      <div class="wt-folderset"><button class="wt-folder" type="button" aria-expanded="false"><svg class="wt-folder-ic" width="50" height="40" viewBox="0 0 128 100" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 30 L10 86 Q10 92 16 92 L112 92 Q118 92 118 86 L118 40 Q118 34 112 34 L56 34 L47 20 Q45 16 40 16 L16 16 Q10 16 10 22 Z"></path><path d="M10 44 L118 44"></path></svg><span class="wt-folder-label">View 6 previews</span><span class="wt-folder-hint">CLICK TO OPEN</span></button><div class="wt-reveal"><figure class="wt-thumb" data-view="t1l16a" style="margin:0;cursor:pointer;transform:rotate(-2.6deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div class="wt-frame" style="background:var(--paper-000);padding:6px 6px 8px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);"><div style="width:267px;height:150px;overflow:hidden;background:var(--paper-200);"><image-slot id="t1l16a" shape="rect" src="assets/work/fh-live-listing.png" placeholder="16:9" style="display:block;width:100%;height:100%;"></image-slot></div></div></figure><figure class="wt-thumb" data-view="t1l9a" style="margin:0;cursor:pointer;transform:rotate(1.9deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div class="wt-frame" style="background:var(--paper-000);padding:6px 6px 8px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);"><div style="width:84px;height:150px;overflow:hidden;background:var(--paper-200);"><image-slot id="t1l9a" shape="rect" src="assets/work/fh-live-phone-mode.png" placeholder="9:16" style="display:block;width:100%;height:100%;"></image-slot></div></div></figure><figure class="wt-thumb" data-view="t1l16b" style="margin:0;cursor:pointer;transform:rotate(-1.3deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div class="wt-frame" style="background:var(--paper-000);padding:6px 6px 8px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);"><div style="width:267px;height:150px;overflow:hidden;background:var(--paper-200);"><image-slot id="t1l16b" shape="rect" src="assets/work/fh-live-inquiry.png" placeholder="16:9" style="display:block;width:100%;height:100%;"></image-slot></div></div></figure><figure class="wt-thumb" data-view="t1l9b" style="margin:0;cursor:pointer;transform:rotate(2.3deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div class="wt-frame" style="background:var(--paper-000);padding:6px 6px 8px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);"><div style="width:84px;height:150px;overflow:hidden;background:var(--paper-200);"><image-slot id="t1l9b" shape="rect" src="assets/work/fh-live-inquire.png" placeholder="9:16" style="display:block;width:100%;height:100%;"></image-slot></div></div></figure><figure class="wt-videotile" data-drivevid="1j_HCf5NsUEaGPAcQohjLPsMnrKhQP8AR" style="margin:0;flex:0 0 auto;position:relative;cursor:pointer;transform:rotate(-1.4deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div style="background:var(--paper-000);padding:6px;border:2px solid var(--gold-500);box-shadow:0 0 0 3px var(--gold-200), var(--shadow-tape);"><div style="width:267px;height:150px;overflow:hidden;background:var(--ink-900);position:relative;"><img src="assets/work/fh-live-scroll-animation.png" alt="Scroll animation video" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"><span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(21,18,14,0.30);"><span style="display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;background:var(--gold-500);border:2px solid var(--ink-900);box-shadow:0 6px 16px -6px rgba(0,0,0,.6);"><svg width="15" height="17" viewBox="0 0 15 17" fill="#15120E"><path d="M0 0 L15 8.5 L0 17 Z"></path></svg></span></span></div></div><span style="position:absolute;top:-9px;right:-9px;display:inline-flex;align-items:center;gap:4px;background:var(--gold-500);color:var(--ink-900);font-family:var(--small-font,var(--font-body));font-weight:700;text-transform:uppercase;letter-spacing:0.12em;font-size:9px;padding:3px 8px;border-radius:999px;border:1.5px solid var(--ink-900);box-shadow:var(--shadow-tape);"><svg width="7" height="8" viewBox="0 0 7 8" fill="currentColor"><path d="M0 0 L7 4 L0 8 Z"></path></svg>Video</span></figure><figure class="wt-thumb" data-view="t1l9c" style="margin:0;cursor:pointer;transform:rotate(1.5deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div class="wt-frame" style="background:var(--paper-000);padding:6px 6px 8px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);"><div style="width:84px;height:150px;overflow:hidden;background:var(--paper-200);"><image-slot id="t1l9c" shape="rect" src="assets/work/fh-live-mobile-mode.png" placeholder="9:16" style="display:block;width:100%;height:100%;"></image-slot></div></div></figure></div></div>
+    </div>
+    <div style="margin-top:24px;padding-top:22px;border-top:1.5px dashed var(--line-hairline);">
+      <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;">
+        <span style="font-family:var(--small-font,var(--font-body));font-weight:600;text-transform:uppercase;letter-spacing:0.16em;font-size:11px;color:var(--ink-500);flex:0 0 auto;">Back-end Works</span>
+      </div>
+      <div class="wt-folderset"><button class="wt-folder" type="button" aria-expanded="false"><svg class="wt-folder-ic" width="50" height="40" viewBox="0 0 128 100" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 30 L10 86 Q10 92 16 92 L112 92 Q118 92 118 86 L118 40 Q118 34 112 34 L56 34 L47 20 Q45 16 40 16 L16 16 Q10 16 10 22 Z"></path><path d="M10 44 L118 44"></path></svg><span class="wt-folder-label">View 8 previews</span><span class="wt-folder-hint">CLICK TO OPEN</span></button><div class="wt-reveal"><figure class="wt-thumb" data-view="t1a16a" style="margin:0;cursor:pointer;transform:rotate(-2.4deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div class="wt-frame" style="background:var(--paper-000);padding:6px 6px 8px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);"><div style="width:267px;height:150px;overflow:hidden;background:var(--paper-200);"><image-slot id="t1a16a" shape="rect" src="assets/work/fh-admin-dashboard.png" placeholder="16:9" style="display:block;width:100%;height:100%;"></image-slot></div></div></figure><figure class="wt-thumb" data-view="t1a9a" style="margin:0;cursor:pointer;transform:rotate(1.8deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div class="wt-frame" style="background:var(--paper-000);padding:6px 6px 8px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);"><div style="width:84px;height:150px;overflow:hidden;background:var(--paper-200);"><image-slot id="t1a9a" shape="rect" src="assets/work/fh-admin-backend.png" placeholder="9:16" style="display:block;width:100%;height:100%;"></image-slot></div></div></figure><figure class="wt-thumb" data-view="t1a16b" style="margin:0;cursor:pointer;transform:rotate(-1.2deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div class="wt-frame" style="background:var(--paper-000);padding:6px 6px 8px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);"><div style="width:267px;height:150px;overflow:hidden;background:var(--paper-200);"><image-slot id="t1a16b" shape="rect" src="assets/work/fh-admin-password.png" placeholder="16:9" style="display:block;width:100%;height:100%;"></image-slot></div></div></figure><figure class="wt-thumb" data-view="t1a9b" style="margin:0;cursor:pointer;transform:rotate(2.2deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div class="wt-frame" style="background:var(--paper-000);padding:6px 6px 8px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);"><div style="width:84px;height:150px;overflow:hidden;background:var(--paper-200);"><image-slot id="t1a9b" shape="rect" src="assets/work/fh-admin-password-2.png" placeholder="9:16" style="display:block;width:100%;height:100%;"></image-slot></div></div></figure><figure class="wt-thumb" data-view="t1be1" style="margin:0;cursor:pointer;transform:rotate(1.6deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div class="wt-frame" style="background:var(--paper-000);padding:6px 6px 8px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);"><div style="width:267px;height:150px;overflow:hidden;background:var(--paper-200);"><image-slot id="t1be1" shape="rect" src="assets/work/fh-be-supabase.png" placeholder="16:9" style="display:block;width:100%;height:100%;"></image-slot></div></div></figure><figure class="wt-thumb" data-view="t1be2" style="margin:0;cursor:pointer;transform:rotate(-1.3deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div class="wt-frame" style="background:var(--paper-000);padding:6px 6px 8px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);"><div style="width:267px;height:150px;overflow:hidden;background:var(--paper-200);"><image-slot id="t1be2" shape="rect" src="assets/work/fh-be-resend.png" placeholder="16:9" style="display:block;width:100%;height:100%;"></image-slot></div></div></figure><figure class="wt-thumb" data-view="t1be3" style="margin:0;cursor:pointer;transform:rotate(2deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div class="wt-frame" style="background:var(--paper-000);padding:6px 6px 8px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);"><div style="width:267px;height:150px;overflow:hidden;background:var(--paper-200);"><image-slot id="t1be3" shape="rect" src="assets/work/fh-be-automated-email-listing.png" placeholder="16:9" style="display:block;width:100%;height:100%;"></image-slot></div></div></figure><figure class="wt-thumb" data-view="t1be4" style="margin:0;cursor:pointer;transform:rotate(-1deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div class="wt-frame" style="background:var(--paper-000);padding:6px 6px 8px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);"><div style="width:267px;height:150px;overflow:hidden;background:var(--paper-200);"><image-slot id="t1be4" shape="rect" src="assets/work/fh-be-morning-briefing.png" placeholder="16:9" style="display:block;width:100%;height:100%;"></image-slot></div></div></figure></div></div>
+    </div>
+  </article>
+  <article data-reveal="" data-delay="80" style="background:var(--paper-000);border:2px solid var(--line-ink);border-radius:var(--radius-sketch);padding:34px 36px;margin-bottom:40px;">
+    <div style="font-family:'Jost',system-ui,sans-serif;text-transform:uppercase;letter-spacing:0.22em;font-size:12px;color:var(--ink-500);">Tile 2 — Day 4 Deployed Website</div>
+    <h3 style="font-family:var(--font-hand);font-weight:700;font-size:30px;line-height:1.12;color:var(--text-strong);margin:10px 0 0;">Kids Fashion</h3>
+    <p style="font:var(--type-body);color:var(--text-body);margin:14px 0 0;max-width:74ch;">A kids-fashion storefront with home, shop, product, and about pages. Designed in Claude Design, built with Claude Code, and deployed to Vercel.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:9px;margin-top:18px;"><x-import component-from-global-scope="SketchbookPortfolioDesignSystem_ff03c2.Tag" hint-size="auto,28px">Design-first workflow</x-import><x-import component-from-global-scope="SketchbookPortfolioDesignSystem_ff03c2.Tag" hint-size="auto,28px">Frontend Design</x-import><x-import component-from-global-scope="SketchbookPortfolioDesignSystem_ff03c2.Tag" hint-size="auto,28px">Deployment</x-import></div>
+    <div style="margin-top:24px;padding-top:22px;border-top:1.5px dashed var(--line-hairline);">
+      <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;">
+        <span style="font-family:var(--small-font,var(--font-body));font-weight:600;text-transform:uppercase;letter-spacing:0.16em;font-size:11px;color:var(--ink-500);flex:0 0 auto;">Live URL</span>
+        <a href="https://kids-fashion-website.vercel.app" target="_blank" rel="noopener" style="font-family:var(--font-hand);font-weight:600;font-size:15px;color:var(--ink-900);text-decoration:none;border-bottom:2px solid var(--gold-400);word-break:break-all;">https://kids-fashion-website.vercel.app</a>
+      </div>
+      <div class="wt-folderset"><button class="wt-folder" type="button" aria-expanded="false"><svg class="wt-folder-ic" width="50" height="40" viewBox="0 0 128 100" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 30 L10 86 Q10 92 16 92 L112 92 Q118 92 118 86 L118 40 Q118 34 112 34 L56 34 L47 20 Q45 16 40 16 L16 16 Q10 16 10 22 Z"></path><path d="M10 44 L118 44"></path></svg><span class="wt-folder-label">View 6 previews</span><span class="wt-folder-hint">CLICK TO OPEN</span></button><div class="wt-reveal"><figure class="wt-thumb" data-view="t2l16a" style="margin:0;cursor:pointer;transform:rotate(-2.6deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div class="wt-frame" style="background:var(--paper-000);padding:6px 6px 8px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);"><div style="width:267px;height:150px;overflow:hidden;background:var(--paper-200);"><image-slot id="t2l16a" shape="rect" src="assets/work/kids-website.png" placeholder="16:9" style="display:block;width:100%;height:100%;"></image-slot></div></div></figure><figure class="wt-thumb" data-view="t2l9a" style="margin:0;cursor:pointer;transform:rotate(1.9deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div class="wt-frame" style="background:var(--paper-000);padding:6px 6px 8px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);"><div style="width:84px;height:150px;overflow:hidden;background:var(--paper-200);"><image-slot id="t2l9a" shape="rect" src="assets/work/kids-on-phone.png" placeholder="9:16" style="display:block;width:100%;height:100%;"></image-slot></div></div></figure><figure class="wt-thumb" data-view="t2l16b" style="margin:0;cursor:pointer;transform:rotate(-1.3deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div class="wt-frame" style="background:var(--paper-000);padding:6px 6px 8px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);"><div style="width:267px;height:150px;overflow:hidden;background:var(--paper-200);"><image-slot id="t2l16b" shape="rect" src="assets/work/kids-fashion.png" placeholder="16:9" style="display:block;width:100%;height:100%;"></image-slot></div></div></figure><figure class="wt-thumb" data-view="t2l9b" style="margin:0;cursor:pointer;transform:rotate(2.3deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div class="wt-frame" style="background:var(--paper-000);padding:6px 6px 8px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);"><div style="width:84px;height:150px;overflow:hidden;background:var(--paper-200);"><image-slot id="t2l9b" shape="rect" src="assets/work/kids-mobile-overview.png" placeholder="9:16" style="display:block;width:100%;height:100%;"></image-slot></div></div></figure><figure class="wt-thumb" data-view="t2l16c" style="margin:0;cursor:pointer;transform:rotate(-1deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div class="wt-frame" style="background:var(--paper-000);padding:6px 6px 8px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);"><div style="width:267px;height:150px;overflow:hidden;background:var(--paper-200);"><image-slot id="t2l16c" shape="rect" src="assets/work/kids-about-us.png" placeholder="16:9" style="display:block;width:100%;height:100%;"></image-slot></div></div></figure><figure class="wt-thumb" data-view="t2l9c" style="margin:0;cursor:pointer;transform:rotate(1.5deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div class="wt-frame" style="background:var(--paper-000);padding:6px 6px 8px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);"><div style="width:84px;height:150px;overflow:hidden;background:var(--paper-200);"><image-slot id="t2l9c" shape="rect" src="assets/work/kids-about-us-2.png" placeholder="9:16" style="display:block;width:100%;height:100%;"></image-slot></div></div></figure></div></div>
+    </div>
+  </article>
+  <article data-reveal="" data-delay="160" style="background:var(--paper-000);border:2px solid var(--line-ink);border-radius:var(--radius-sketch);padding:34px 36px;margin-bottom:40px;">
+    <div style="font-family:'Jost',system-ui,sans-serif;text-transform:uppercase;letter-spacing:0.22em;font-size:12px;color:var(--ink-500);">Tile 3 — Self-Education Project</div>
+    <h3 style="font-family:var(--font-hand);font-weight:700;font-size:30px;line-height:1.12;color:var(--text-strong);margin:10px 0 0;">Master Claude as a Complete Beginner</h3>
+    <p style="font:var(--type-body);color:var(--text-body);margin:14px 0 0;max-width:74ch;">Helps me easily navigate the features of Claude Code &amp; Claude Design — especially creating designs and publishing websites.</p>
+
+    <div style="margin-top:24px;padding-top:22px;border-top:1.5px dashed var(--line-hairline);">
+      <div style="font-family:var(--small-font,var(--font-body));font-weight:600;text-transform:uppercase;letter-spacing:0.16em;font-size:11px;color:var(--ink-500);margin-bottom:12px;">Watch on the site</div>
+      <div class="m1" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+        <div class="watch-embed" style="background:var(--paper-000);padding:6px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-paper);"><div style="aspect-ratio:16 / 9;overflow:hidden;background:var(--ink-900);"><iframe src="https://www.youtube.com/embed/JYZ7i1NFiyM?start=148" title="Master Claude — part 1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" style="width:100%;height:100%;border:0;display:block;"></iframe></div></div>
+        <div class="watch-embed" style="background:var(--paper-000);padding:6px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-paper);"><div style="aspect-ratio:16 / 9;overflow:hidden;background:var(--ink-900);"><iframe src="https://www.youtube.com/embed/334ZspMJeVo?start=3727" title="Master Claude — part 2" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" style="width:100%;height:100%;border:0;display:block;"></iframe></div></div>
+      </div>
+    </div>
+  </article>
+  <div data-reveal="" data-delay="80" class="m-card" style="background:var(--paper-000);border:2px solid var(--line-ink);border-radius:var(--radius-sketch);padding:34px 36px;">
+    <div style="font-family:'Jost',system-ui,sans-serif;text-transform:uppercase;letter-spacing:0.22em;font-size:12px;color:var(--ink-500);">Accounts</div>
+    <h3 style="font-family:var(--font-hand);font-weight:700;font-size:26px;color:var(--text-strong);margin:10px 0 22px;">Tools &amp; access</h3>
+    <div class="m-acc" style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;">
+      <div style="border:1.5px solid var(--line-ink);border-radius:var(--radius-sketch-2);padding:12px;background:var(--paper-000);">
+        <label style="display:flex;align-items:center;gap:9px;cursor:pointer;margin-bottom:10px;font-family:var(--font-hand);font-weight:600;font-size:15px;color:var(--text-strong);"><input type="checkbox" style="width:17px;height:17px;accent-color:var(--gold-500);cursor:pointer;">GitHub</label>
+        <div class="acc-shot" data-view="acc-1" style="aspect-ratio:16 / 9;overflow:hidden;background:var(--paper-200);border:1.5px solid var(--line-ink);cursor:pointer;"><image-slot id="acc-1" shape="rect" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20320%20180%22%3E%3Crect%20width%3D%22320%22%20height%3D%22180%22%20fill%3D%22%23F4EFE4%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23938B7C%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M126%2072%20L142%2072%20L148%2064%20L172%2064%20L178%2072%20L194%2072%20Q198%2072%20198%2076%20L198%20106%20Q198%20110%20194%20110%20L126%20110%20Q122%20110%20122%20106%20L122%2076%20Q122%2072%20126%2072%20Z%22%2F%3E%3Ccircle%20cx%3D%22160%22%20cy%3D%2289%22%20r%3D%2212%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22160%22%20y%3D%22150%22%20text-anchor%3D%22middle%22%20font-family%3D%22Hanken%20Grotesk%2Csans-serif%22%20font-size%3D%2213%22%20letter-spacing%3D%222%22%20fill%3D%22%236B6356%22%3EPREVIEW%3C%2Ftext%3E%3C%2Fsvg%3E" placeholder="16:9" style="display:block;width:100%;height:100%;"></image-slot></div>
+      </div>
+      <div style="border:1.5px solid var(--line-ink);border-radius:var(--radius-sketch-2);padding:12px;background:var(--paper-000);">
+        <label style="display:flex;align-items:center;gap:9px;cursor:pointer;margin-bottom:10px;font-family:var(--font-hand);font-weight:600;font-size:15px;color:var(--text-strong);"><input type="checkbox" style="width:17px;height:17px;accent-color:var(--gold-500);cursor:pointer;">Vercel</label>
+        <div class="acc-shot" data-view="acc-2" style="aspect-ratio:16 / 9;overflow:hidden;background:var(--paper-200);border:1.5px solid var(--line-ink);cursor:pointer;"><image-slot id="acc-2" shape="rect" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20320%20180%22%3E%3Crect%20width%3D%22320%22%20height%3D%22180%22%20fill%3D%22%23F4EFE4%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23938B7C%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M126%2072%20L142%2072%20L148%2064%20L172%2064%20L178%2072%20L194%2072%20Q198%2072%20198%2076%20L198%20106%20Q198%20110%20194%20110%20L126%20110%20Q122%20110%20122%20106%20L122%2076%20Q122%2072%20126%2072%20Z%22%2F%3E%3Ccircle%20cx%3D%22160%22%20cy%3D%2289%22%20r%3D%2212%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22160%22%20y%3D%22150%22%20text-anchor%3D%22middle%22%20font-family%3D%22Hanken%20Grotesk%2Csans-serif%22%20font-size%3D%2213%22%20letter-spacing%3D%222%22%20fill%3D%22%236B6356%22%3EPREVIEW%3C%2Ftext%3E%3C%2Fsvg%3E" placeholder="16:9" style="display:block;width:100%;height:100%;"></image-slot></div>
+      </div>
+      <div style="border:1.5px solid var(--line-ink);border-radius:var(--radius-sketch-2);padding:12px;background:var(--paper-000);">
+        <label style="display:flex;align-items:center;gap:9px;cursor:pointer;margin-bottom:10px;font-family:var(--font-hand);font-weight:600;font-size:15px;color:var(--text-strong);"><input type="checkbox" style="width:17px;height:17px;accent-color:var(--gold-500);cursor:pointer;">Claude.ai (paid plan)</label>
+        <div class="acc-shot" data-view="acc-3" style="aspect-ratio:16 / 9;overflow:hidden;background:var(--paper-200);border:1.5px solid var(--line-ink);cursor:pointer;"><image-slot id="acc-3" shape="rect" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20320%20180%22%3E%3Crect%20width%3D%22320%22%20height%3D%22180%22%20fill%3D%22%23F4EFE4%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23938B7C%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M126%2072%20L142%2072%20L148%2064%20L172%2064%20L178%2072%20L194%2072%20Q198%2072%20198%2076%20L198%20106%20Q198%20110%20194%20110%20L126%20110%20Q122%20110%20122%20106%20L122%2076%20Q122%2072%20126%2072%20Z%22%2F%3E%3Ccircle%20cx%3D%22160%22%20cy%3D%2289%22%20r%3D%2212%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22160%22%20y%3D%22150%22%20text-anchor%3D%22middle%22%20font-family%3D%22Hanken%20Grotesk%2Csans-serif%22%20font-size%3D%2213%22%20letter-spacing%3D%222%22%20fill%3D%22%236B6356%22%3EPREVIEW%3C%2Ftext%3E%3C%2Fsvg%3E" placeholder="16:9" style="display:block;width:100%;height:100%;"></image-slot></div>
+      </div>
+      <div style="border:1.5px solid var(--line-ink);border-radius:var(--radius-sketch-2);padding:12px;background:var(--paper-000);">
+        <label style="display:flex;align-items:center;gap:9px;cursor:pointer;margin-bottom:10px;font-family:var(--font-hand);font-weight:600;font-size:15px;color:var(--text-strong);"><input type="checkbox" style="width:17px;height:17px;accent-color:var(--gold-500);cursor:pointer;">Doppler</label>
+        <div class="acc-shot" data-view="acc-4" style="aspect-ratio:16 / 9;overflow:hidden;background:var(--paper-200);border:1.5px solid var(--line-ink);cursor:pointer;"><image-slot id="acc-4" shape="rect" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20320%20180%22%3E%3Crect%20width%3D%22320%22%20height%3D%22180%22%20fill%3D%22%23F4EFE4%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23938B7C%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M126%2072%20L142%2072%20L148%2064%20L172%2064%20L178%2072%20L194%2072%20Q198%2072%20198%2076%20L198%20106%20Q198%20110%20194%20110%20L126%20110%20Q122%20110%20122%20106%20L122%2076%20Q122%2072%20126%2072%20Z%22%2F%3E%3Ccircle%20cx%3D%22160%22%20cy%3D%2289%22%20r%3D%2212%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22160%22%20y%3D%22150%22%20text-anchor%3D%22middle%22%20font-family%3D%22Hanken%20Grotesk%2Csans-serif%22%20font-size%3D%2213%22%20letter-spacing%3D%222%22%20fill%3D%22%236B6356%22%3EPREVIEW%3C%2Ftext%3E%3C%2Fsvg%3E" placeholder="16:9" style="display:block;width:100%;height:100%;"></image-slot></div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <div id="other-works" data-reveal="" data-anim="card" style="text-align:center;max-width:1100px;margin:120px auto 0;padding:0 32px;">
+    <div style="display:flex;align-items:center;justify-content:center;gap:20px;">
+      <span style="width:64px;height:1.5px;background:var(--line-hairline);"></span>
+      <x-import component-from-global-scope="SketchbookPortfolioDesignSystem_ff03c2.Doodle" name="star" size="20" color="var(--gold-500)" hint-size="20px,20px"></x-import>
+      <span style="width:64px;height:1.5px;background:var(--line-hairline);"></span>
+    </div>
+    <div class="tc-title" style="font-family:'Jost',system-ui,sans-serif;font-weight:500;text-transform:uppercase;letter-spacing:0.34em;font-size:30px;color:var(--ink-900);margin-top:16px;padding-left:0.34em;">My other Works</div>
+    <div style="font-family:'Jost',system-ui,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:0.3em;font-size:12px;color:var(--ink-500);margin-top:12px;padding-left:0.3em;">reels &amp; stills</div>
   </div>
 
   <!-- VIDEOS -->
@@ -446,7 +521,7 @@
       <span style="font-family:var(--small-font,var(--font-body));font-weight:600;text-transform:uppercase;letter-spacing:0.2em;font-size:12px;color:var(--ink-500);padding-bottom:8px;">stills &amp; frames</span>
     </div>
 
-    <div data-reveal="" class="m-fan-wrap" style="min-height:660px;display:flex;align-items:center;justify-content:center;">
+    <div data-reveal="" class="m-fan-wrap" style="min-height:880px;display:flex;align-items:center;justify-content:center;">
       <div class="photo-fan {{ fanClass }}">
       <div class="ph ph-1" onClick="{{ p1 }}"><div class="ph-frame" style="width:100%;height:100%;background:var(--paper-000);padding:7px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);box-sizing:border-box;"><image-slot id="photo-1" shape="rect" src="assets/work/ow-bank-reconciliation.png" placeholder="16:9" style="display:block;width:100%;height:100%;"></image-slot></div></div>
       <div class="ph ph-2" onClick="{{ p2 }}"><div class="ph-frame" style="width:100%;height:100%;background:var(--paper-000);padding:7px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);box-sizing:border-box;"><image-slot id="photo-2" shape="rect" src="assets/work/ow-carousel.png" placeholder="16:9" style="display:block;width:100%;height:100%;"></image-slot></div></div>
@@ -454,6 +529,10 @@
       <div class="ph ph-4" onClick="{{ p4 }}"><div class="ph-frame" style="width:100%;height:100%;background:var(--paper-000);padding:7px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);box-sizing:border-box;"><image-slot id="photo-4" shape="rect" src="assets/work/ow-landing-page-claude-design.png" placeholder="16:9" style="display:block;width:100%;height:100%;"></image-slot></div></div>
       <div class="ph ph-5" onClick="{{ p5 }}"><div class="ph-frame" style="width:100%;height:100%;background:var(--paper-000);padding:7px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);box-sizing:border-box;"><image-slot id="photo-5" shape="rect" src="assets/work/ow-matching-invoice.png" placeholder="16:9" style="display:block;width:100%;height:100%;"></image-slot></div></div>
       <div class="ph ph-6" onClick="{{ p6 }}"><div class="ph-frame" style="width:100%;height:100%;background:var(--paper-000);padding:7px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);box-sizing:border-box;"><image-slot id="photo-6" shape="rect" src="assets/work/ow-research-findings.png" placeholder="16:9" style="display:block;width:100%;height:100%;"></image-slot></div></div>
+      <div class="ph ph-7" onClick="{{ p7 }}"><div class="ph-frame" style="width:100%;height:100%;background:var(--paper-000);padding:7px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);box-sizing:border-box;"><image-slot id="photo-7" shape="rect" src="assets/work/ow-bookmark-1.png" placeholder="9:16" style="display:block;width:100%;height:100%;"></image-slot></div></div>
+      <div class="ph ph-8" onClick="{{ p8 }}"><div class="ph-frame" style="width:100%;height:100%;background:var(--paper-000);padding:7px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);box-sizing:border-box;"><image-slot id="photo-8" shape="rect" src="assets/work/ow-bookmark-2.png" placeholder="9:16" style="display:block;width:100%;height:100%;"></image-slot></div></div>
+      <div class="ph ph-9" onClick="{{ p9 }}"><div class="ph-frame" style="width:100%;height:100%;background:var(--paper-000);padding:7px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);box-sizing:border-box;"><image-slot id="photo-9" shape="rect" src="assets/work/ow-bookmark-3.png" placeholder="9:16" style="display:block;width:100%;height:100%;"></image-slot></div></div>
+      <div class="ph ph-10" onClick="{{ p10 }}"><div class="ph-frame" style="width:100%;height:100%;background:var(--paper-000);padding:7px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);box-sizing:border-box;"><image-slot id="photo-10" shape="rect" src="assets/work/ow-bookmark-4.png" placeholder="9:16" style="display:block;width:100%;height:100%;"></image-slot></div></div>
         <div class="folder" onClick="{{ toggleFolder }}">
         <svg width="128" height="100" viewBox="0 0 128 100" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--ink-900);overflow:visible;"><path d="M10 30 L10 86 Q10 92 16 92 L112 92 Q118 92 118 86 L118 40 Q118 34 112 34 L56 34 L47 20 Q45 16 40 16 L16 16 Q10 16 10 22 Z"></path><path d="M10 44 L118 44"></path></svg>
         <div style="font-family:var(--font-hand);font-weight:700;font-size:20px;color:var(--text-strong);">my other works</div>
@@ -462,84 +541,6 @@
       </div>
     </div>
     <div data-parallax="0.05" style="position:absolute;right:4px;bottom:-30px;color:var(--gold-500);opacity:.75;pointer-events:none;"><x-import component-from-global-scope="SketchbookPortfolioDesignSystem_ff03c2.Doodle" name="sparkle" size="36" hint-size="36px,36px"></x-import></div>
-  </section>
-
-  <!-- ============================ WORK TILES ============================ -->
-  <section style="max-width:1080px;margin:128px auto 0;padding:0 32px;">
-    <div data-reveal="" style="display:flex;align-items:flex-end;gap:18px;margin-bottom:40px;">
-      <h2 style="position:relative;font-family:var(--font-hand);font-weight:700;font-size:38px;color:var(--text-strong);margin:0;">Work Tiles
-        <span style="position:absolute;left:0;right:-6px;bottom:-10px;height:6px;color:var(--gold-500);"><x-import component-from-global-scope="SketchbookPortfolioDesignSystem_ff03c2.Doodle" name="squiggle" size="170" draw="{{ true }}" hint-size="170px,15px"></x-import></span>
-      </h2>
-      <span style="font-family:var(--small-font,var(--font-body));font-weight:600;text-transform:uppercase;letter-spacing:0.2em;font-size:12px;color:var(--ink-500);padding-bottom:8px;">case studies · tap a preview to view</span>
-    </div>
-  <article data-reveal="" style="background:var(--paper-000);border:2px solid var(--line-ink);border-radius:var(--radius-sketch);padding:34px 36px;margin-bottom:40px;">
-    <div style="font-family:'Jost',system-ui,sans-serif;text-transform:uppercase;letter-spacing:0.22em;font-size:12px;color:var(--ink-500);">Tile 1 — Practice Brand Site (Days 1–3)</div>
-    <h3 style="font-family:var(--font-hand);font-weight:700;font-size:30px;line-height:1.12;color:var(--text-strong);margin:10px 0 0;">Falcon Homes</h3>
-    <p style="font:var(--type-body);color:var(--text-body);margin:14px 0 0;max-width:74ch;">A full practice brand site built across Days 1–3 — landing page with working contact form, video hero product page, 3D scroll animation, and an admin dashboard.</p>
-    <div style="display:flex;flex-wrap:wrap;gap:9px;margin-top:18px;"><x-import component-from-global-scope="SketchbookPortfolioDesignSystem_ff03c2.Tag" hint-size="auto,28px">Frontend design</x-import><x-import component-from-global-scope="SketchbookPortfolioDesignSystem_ff03c2.Tag" hint-size="auto,28px">3D / Motion</x-import><x-import component-from-global-scope="SketchbookPortfolioDesignSystem_ff03c2.Tag" hint-size="auto,28px">Automation</x-import><x-import component-from-global-scope="SketchbookPortfolioDesignSystem_ff03c2.Tag" hint-size="auto,28px">Back-end</x-import></div>
-    <div style="margin-top:24px;padding-top:22px;border-top:1.5px dashed var(--line-hairline);">
-      <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;">
-        <span style="font-family:var(--small-font,var(--font-body));font-weight:600;text-transform:uppercase;letter-spacing:0.16em;font-size:11px;color:var(--ink-500);flex:0 0 auto;">Live URL</span>
-        <a href="https://falconhomes-landing-page.vercel.app" target="_blank" rel="noopener" style="font-family:var(--font-hand);font-weight:600;font-size:15px;color:var(--ink-900);text-decoration:none;border-bottom:2px solid var(--gold-400);word-break:break-all;">https://falconhomes-landing-page.vercel.app</a>
-      </div>
-      <div class="wt-deck"><figure class="wt-thumb" data-view="t1l16a" style="margin:0;cursor:pointer;transform:rotate(-2.6deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div class="wt-frame" style="background:var(--paper-000);padding:6px 6px 8px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);"><div style="width:267px;height:150px;overflow:hidden;background:var(--paper-200);"><image-slot id="t1l16a" shape="rect" src="assets/work/fh-live-listing.png" placeholder="16:9" style="display:block;width:100%;height:100%;"></image-slot></div></div></figure><figure class="wt-thumb" data-view="t1l9a" style="margin:0;cursor:pointer;transform:rotate(1.9deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div class="wt-frame" style="background:var(--paper-000);padding:6px 6px 8px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);"><div style="width:84px;height:150px;overflow:hidden;background:var(--paper-200);"><image-slot id="t1l9a" shape="rect" src="assets/work/fh-live-phone-mode.png" placeholder="9:16" style="display:block;width:100%;height:100%;"></image-slot></div></div></figure><figure class="wt-thumb" data-view="t1l16b" style="margin:0;cursor:pointer;transform:rotate(-1.3deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div class="wt-frame" style="background:var(--paper-000);padding:6px 6px 8px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);"><div style="width:267px;height:150px;overflow:hidden;background:var(--paper-200);"><image-slot id="t1l16b" shape="rect" src="assets/work/fh-live-inquiry.png" placeholder="16:9" style="display:block;width:100%;height:100%;"></image-slot></div></div></figure><figure class="wt-thumb" data-view="t1l9b" style="margin:0;cursor:pointer;transform:rotate(2.3deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div class="wt-frame" style="background:var(--paper-000);padding:6px 6px 8px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);"><div style="width:84px;height:150px;overflow:hidden;background:var(--paper-200);"><image-slot id="t1l9b" shape="rect" src="assets/work/fh-live-inquire.png" placeholder="9:16" style="display:block;width:100%;height:100%;"></image-slot></div></div></figure><figure class="wt-thumb" data-view="t1l16c" style="margin:0;cursor:pointer;transform:rotate(-1deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div class="wt-frame" style="background:var(--paper-000);padding:6px 6px 8px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);"><div style="width:267px;height:150px;overflow:hidden;background:var(--paper-200);"><image-slot id="t1l16c" shape="rect" src="assets/work/fh-live-scroll-animation.png" placeholder="16:9" style="display:block;width:100%;height:100%;"></image-slot></div></div></figure><figure class="wt-thumb" data-view="t1l9c" style="margin:0;cursor:pointer;transform:rotate(1.5deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div class="wt-frame" style="background:var(--paper-000);padding:6px 6px 8px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);"><div style="width:84px;height:150px;overflow:hidden;background:var(--paper-200);"><image-slot id="t1l9c" shape="rect" src="assets/work/fh-live-mobile-mode.png" placeholder="9:16" style="display:block;width:100%;height:100%;"></image-slot></div></div></figure></div>
-    </div>
-    <div style="margin-top:24px;padding-top:22px;border-top:1.5px dashed var(--line-hairline);">
-      <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;">
-        <span style="font-family:var(--small-font,var(--font-body));font-weight:600;text-transform:uppercase;letter-spacing:0.16em;font-size:11px;color:var(--ink-500);flex:0 0 auto;">Admin URL</span>
-        <a href="https://falconhomes-landing-page.vercel.app/admin-fh3131.html" target="_blank" rel="noopener" style="font-family:var(--font-hand);font-weight:600;font-size:15px;color:var(--ink-900);text-decoration:none;border-bottom:2px solid var(--gold-400);word-break:break-all;">https://falconhomes-landing-page.vercel.app/admin-fh3131.html</a>
-      </div>
-      <div class="wt-deck"><figure class="wt-thumb" data-view="t1a16a" style="margin:0;cursor:pointer;transform:rotate(-2.6deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div class="wt-frame" style="background:var(--paper-000);padding:6px 6px 8px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);"><div style="width:267px;height:150px;overflow:hidden;background:var(--paper-200);"><image-slot id="t1a16a" shape="rect" src="assets/work/fh-admin-dashboard.png" placeholder="16:9" style="display:block;width:100%;height:100%;"></image-slot></div></div></figure><figure class="wt-thumb" data-view="t1a9a" style="margin:0;cursor:pointer;transform:rotate(1.9deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div class="wt-frame" style="background:var(--paper-000);padding:6px 6px 8px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);"><div style="width:84px;height:150px;overflow:hidden;background:var(--paper-200);"><image-slot id="t1a9a" shape="rect" src="assets/work/fh-admin-backend.png" placeholder="9:16" style="display:block;width:100%;height:100%;"></image-slot></div></div></figure><figure class="wt-thumb" data-view="t1a16b" style="margin:0;cursor:pointer;transform:rotate(-1.3deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div class="wt-frame" style="background:var(--paper-000);padding:6px 6px 8px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);"><div style="width:267px;height:150px;overflow:hidden;background:var(--paper-200);"><image-slot id="t1a16b" shape="rect" src="assets/work/fh-admin-password.png" placeholder="16:9" style="display:block;width:100%;height:100%;"></image-slot></div></div></figure><figure class="wt-thumb" data-view="t1a9b" style="margin:0;cursor:pointer;transform:rotate(2.3deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div class="wt-frame" style="background:var(--paper-000);padding:6px 6px 8px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);"><div style="width:84px;height:150px;overflow:hidden;background:var(--paper-200);"><image-slot id="t1a9b" shape="rect" src="assets/work/fh-admin-password-2.png" placeholder="9:16" style="display:block;width:100%;height:100%;"></image-slot></div></div></figure></div>
-    </div>
-  </article>
-  <article data-reveal="" data-delay="80" style="background:var(--paper-000);border:2px solid var(--line-ink);border-radius:var(--radius-sketch);padding:34px 36px;margin-bottom:40px;">
-    <div style="font-family:'Jost',system-ui,sans-serif;text-transform:uppercase;letter-spacing:0.22em;font-size:12px;color:var(--ink-500);">Tile 2 — Day 4 Deployed Website</div>
-    <h3 style="font-family:var(--font-hand);font-weight:700;font-size:30px;line-height:1.12;color:var(--text-strong);margin:10px 0 0;">Kids Fashion</h3>
-    <p style="font:var(--type-body);color:var(--text-body);margin:14px 0 0;max-width:74ch;">A kids-fashion storefront with home, shop, product, and about pages. Designed in Claude Design, built with Claude Code, and deployed to Vercel.</p>
-    <div style="display:flex;flex-wrap:wrap;gap:9px;margin-top:18px;"><x-import component-from-global-scope="SketchbookPortfolioDesignSystem_ff03c2.Tag" hint-size="auto,28px">Design-first workflow</x-import><x-import component-from-global-scope="SketchbookPortfolioDesignSystem_ff03c2.Tag" hint-size="auto,28px">Frontend Design</x-import><x-import component-from-global-scope="SketchbookPortfolioDesignSystem_ff03c2.Tag" hint-size="auto,28px">Deployment</x-import></div>
-    <div style="margin-top:24px;padding-top:22px;border-top:1.5px dashed var(--line-hairline);">
-      <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;">
-        <span style="font-family:var(--small-font,var(--font-body));font-weight:600;text-transform:uppercase;letter-spacing:0.16em;font-size:11px;color:var(--ink-500);flex:0 0 auto;">Live URL</span>
-        <a href="https://kids-fashion-website.vercel.app" target="_blank" rel="noopener" style="font-family:var(--font-hand);font-weight:600;font-size:15px;color:var(--ink-900);text-decoration:none;border-bottom:2px solid var(--gold-400);word-break:break-all;">https://kids-fashion-website.vercel.app</a>
-      </div>
-      <div class="wt-deck"><figure class="wt-thumb" data-view="t2l16a" style="margin:0;cursor:pointer;transform:rotate(-2.6deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div class="wt-frame" style="background:var(--paper-000);padding:6px 6px 8px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);"><div style="width:267px;height:150px;overflow:hidden;background:var(--paper-200);"><image-slot id="t2l16a" shape="rect" src="assets/work/kids-website.png" placeholder="16:9" style="display:block;width:100%;height:100%;"></image-slot></div></div></figure><figure class="wt-thumb" data-view="t2l9a" style="margin:0;cursor:pointer;transform:rotate(1.9deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div class="wt-frame" style="background:var(--paper-000);padding:6px 6px 8px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);"><div style="width:84px;height:150px;overflow:hidden;background:var(--paper-200);"><image-slot id="t2l9a" shape="rect" src="assets/work/kids-on-phone.png" placeholder="9:16" style="display:block;width:100%;height:100%;"></image-slot></div></div></figure><figure class="wt-thumb" data-view="t2l16b" style="margin:0;cursor:pointer;transform:rotate(-1.3deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div class="wt-frame" style="background:var(--paper-000);padding:6px 6px 8px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);"><div style="width:267px;height:150px;overflow:hidden;background:var(--paper-200);"><image-slot id="t2l16b" shape="rect" src="assets/work/kids-fashion.png" placeholder="16:9" style="display:block;width:100%;height:100%;"></image-slot></div></div></figure><figure class="wt-thumb" data-view="t2l9b" style="margin:0;cursor:pointer;transform:rotate(2.3deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div class="wt-frame" style="background:var(--paper-000);padding:6px 6px 8px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);"><div style="width:84px;height:150px;overflow:hidden;background:var(--paper-200);"><image-slot id="t2l9b" shape="rect" src="assets/work/kids-mobile-overview.png" placeholder="9:16" style="display:block;width:100%;height:100%;"></image-slot></div></div></figure><figure class="wt-thumb" data-view="t2l16c" style="margin:0;cursor:pointer;transform:rotate(-1deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div class="wt-frame" style="background:var(--paper-000);padding:6px 6px 8px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);"><div style="width:267px;height:150px;overflow:hidden;background:var(--paper-200);"><image-slot id="t2l16c" shape="rect" src="assets/work/kids-about-us.png" placeholder="16:9" style="display:block;width:100%;height:100%;"></image-slot></div></div></figure><figure class="wt-thumb" data-view="t2l9c" style="margin:0;cursor:pointer;transform:rotate(1.5deg);transition:var(--t-hover);" style-hover="transform:rotate(0deg) translateY(-5px);"><div class="wt-frame" style="background:var(--paper-000);padding:6px 6px 8px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-tape);"><div style="width:84px;height:150px;overflow:hidden;background:var(--paper-200);"><image-slot id="t2l9c" shape="rect" src="assets/work/kids-about-us-2.png" placeholder="9:16" style="display:block;width:100%;height:100%;"></image-slot></div></div></figure></div>
-    </div>
-  </article>
-  <article data-reveal="" data-delay="160" style="background:var(--paper-000);border:2px solid var(--line-ink);border-radius:var(--radius-sketch);padding:34px 36px;margin-bottom:40px;">
-    <div style="font-family:'Jost',system-ui,sans-serif;text-transform:uppercase;letter-spacing:0.22em;font-size:12px;color:var(--ink-500);">Tile 3 — Self-Education Project</div>
-    <h3 style="font-family:var(--font-hand);font-weight:700;font-size:30px;line-height:1.12;color:var(--text-strong);margin:10px 0 0;">Master Claude as a Complete Beginner</h3>
-    <p style="font:var(--type-body);color:var(--text-body);margin:14px 0 0;max-width:74ch;">Helps me easily navigate the features of Claude Code &amp; Claude Design — especially creating designs and publishing websites.</p>
-
-    <div style="margin-top:24px;padding-top:22px;border-top:1.5px dashed var(--line-hairline);">
-      <div style="font-family:var(--small-font,var(--font-body));font-weight:600;text-transform:uppercase;letter-spacing:0.16em;font-size:11px;color:var(--ink-500);margin-bottom:12px;">Watch on the site</div>
-      <div class="m1" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
-        <div class="watch-embed" style="background:var(--paper-000);padding:6px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-paper);"><div style="aspect-ratio:16 / 9;overflow:hidden;background:var(--ink-900);"><iframe src="https://www.youtube.com/embed/JYZ7i1NFiyM?start=148" title="Master Claude — part 1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" style="width:100%;height:100%;border:0;display:block;"></iframe></div></div>
-        <div class="watch-embed" style="background:var(--paper-000);padding:6px;border:1.5px solid var(--line-ink);box-shadow:var(--shadow-paper);"><div style="aspect-ratio:16 / 9;overflow:hidden;background:var(--ink-900);"><iframe src="https://www.youtube.com/embed/334ZspMJeVo?start=3727" title="Master Claude — part 2" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" style="width:100%;height:100%;border:0;display:block;"></iframe></div></div>
-      </div>
-    </div>
-  </article>
-  <div data-reveal="" data-delay="80" class="m-card" style="background:var(--paper-000);border:2px solid var(--line-ink);border-radius:var(--radius-sketch);padding:34px 36px;">
-    <div style="font-family:'Jost',system-ui,sans-serif;text-transform:uppercase;letter-spacing:0.22em;font-size:12px;color:var(--ink-500);">Accounts</div>
-    <h3 style="font-family:var(--font-hand);font-weight:700;font-size:26px;color:var(--text-strong);margin:10px 0 22px;">Tools &amp; access</h3>
-    <div class="m-acc" style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;">
-      <div style="border:1.5px solid var(--line-ink);border-radius:var(--radius-sketch-2);padding:12px;background:var(--paper-000);">
-        <label style="display:flex;align-items:center;gap:9px;cursor:pointer;margin-bottom:10px;font-family:var(--font-hand);font-weight:600;font-size:15px;color:var(--text-strong);"><input type="checkbox" style="width:17px;height:17px;accent-color:var(--gold-500);cursor:pointer;">GitHub</label>
-        <div class="acc-shot" data-view="acc-1" style="aspect-ratio:16 / 9;overflow:hidden;background:var(--paper-200);border:1.5px solid var(--line-ink);cursor:pointer;"><image-slot id="acc-1" shape="rect" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20320%20180%22%3E%3Crect%20width%3D%22320%22%20height%3D%22180%22%20fill%3D%22%23F4EFE4%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23938B7C%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M126%2072%20L142%2072%20L148%2064%20L172%2064%20L178%2072%20L194%2072%20Q198%2072%20198%2076%20L198%20106%20Q198%20110%20194%20110%20L126%20110%20Q122%20110%20122%20106%20L122%2076%20Q122%2072%20126%2072%20Z%22%2F%3E%3Ccircle%20cx%3D%22160%22%20cy%3D%2289%22%20r%3D%2212%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22160%22%20y%3D%22150%22%20text-anchor%3D%22middle%22%20font-family%3D%22Hanken%20Grotesk%2Csans-serif%22%20font-size%3D%2213%22%20letter-spacing%3D%222%22%20fill%3D%22%236B6356%22%3EPREVIEW%3C%2Ftext%3E%3C%2Fsvg%3E" placeholder="16:9" style="display:block;width:100%;height:100%;"></image-slot></div>
-      </div>
-      <div style="border:1.5px solid var(--line-ink);border-radius:var(--radius-sketch-2);padding:12px;background:var(--paper-000);">
-        <label style="display:flex;align-items:center;gap:9px;cursor:pointer;margin-bottom:10px;font-family:var(--font-hand);font-weight:600;font-size:15px;color:var(--text-strong);"><input type="checkbox" style="width:17px;height:17px;accent-color:var(--gold-500);cursor:pointer;">Vercel</label>
-        <div class="acc-shot" data-view="acc-2" style="aspect-ratio:16 / 9;overflow:hidden;background:var(--paper-200);border:1.5px solid var(--line-ink);cursor:pointer;"><image-slot id="acc-2" shape="rect" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20320%20180%22%3E%3Crect%20width%3D%22320%22%20height%3D%22180%22%20fill%3D%22%23F4EFE4%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23938B7C%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M126%2072%20L142%2072%20L148%2064%20L172%2064%20L178%2072%20L194%2072%20Q198%2072%20198%2076%20L198%20106%20Q198%20110%20194%20110%20L126%20110%20Q122%20110%20122%20106%20L122%2076%20Q122%2072%20126%2072%20Z%22%2F%3E%3Ccircle%20cx%3D%22160%22%20cy%3D%2289%22%20r%3D%2212%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22160%22%20y%3D%22150%22%20text-anchor%3D%22middle%22%20font-family%3D%22Hanken%20Grotesk%2Csans-serif%22%20font-size%3D%2213%22%20letter-spacing%3D%222%22%20fill%3D%22%236B6356%22%3EPREVIEW%3C%2Ftext%3E%3C%2Fsvg%3E" placeholder="16:9" style="display:block;width:100%;height:100%;"></image-slot></div>
-      </div>
-      <div style="border:1.5px solid var(--line-ink);border-radius:var(--radius-sketch-2);padding:12px;background:var(--paper-000);">
-        <label style="display:flex;align-items:center;gap:9px;cursor:pointer;margin-bottom:10px;font-family:var(--font-hand);font-weight:600;font-size:15px;color:var(--text-strong);"><input type="checkbox" style="width:17px;height:17px;accent-color:var(--gold-500);cursor:pointer;">Claude.ai (paid plan)</label>
-        <div class="acc-shot" data-view="acc-3" style="aspect-ratio:16 / 9;overflow:hidden;background:var(--paper-200);border:1.5px solid var(--line-ink);cursor:pointer;"><image-slot id="acc-3" shape="rect" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20320%20180%22%3E%3Crect%20width%3D%22320%22%20height%3D%22180%22%20fill%3D%22%23F4EFE4%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23938B7C%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M126%2072%20L142%2072%20L148%2064%20L172%2064%20L178%2072%20L194%2072%20Q198%2072%20198%2076%20L198%20106%20Q198%20110%20194%20110%20L126%20110%20Q122%20110%20122%20106%20L122%2076%20Q122%2072%20126%2072%20Z%22%2F%3E%3Ccircle%20cx%3D%22160%22%20cy%3D%2289%22%20r%3D%2212%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22160%22%20y%3D%22150%22%20text-anchor%3D%22middle%22%20font-family%3D%22Hanken%20Grotesk%2Csans-serif%22%20font-size%3D%2213%22%20letter-spacing%3D%222%22%20fill%3D%22%236B6356%22%3EPREVIEW%3C%2Ftext%3E%3C%2Fsvg%3E" placeholder="16:9" style="display:block;width:100%;height:100%;"></image-slot></div>
-      </div>
-      <div style="border:1.5px solid var(--line-ink);border-radius:var(--radius-sketch-2);padding:12px;background:var(--paper-000);">
-        <label style="display:flex;align-items:center;gap:9px;cursor:pointer;margin-bottom:10px;font-family:var(--font-hand);font-weight:600;font-size:15px;color:var(--text-strong);"><input type="checkbox" style="width:17px;height:17px;accent-color:var(--gold-500);cursor:pointer;">Doppler</label>
-        <div class="acc-shot" data-view="acc-4" style="aspect-ratio:16 / 9;overflow:hidden;background:var(--paper-200);border:1.5px solid var(--line-ink);cursor:pointer;"><image-slot id="acc-4" shape="rect" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20320%20180%22%3E%3Crect%20width%3D%22320%22%20height%3D%22180%22%20fill%3D%22%23F4EFE4%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23938B7C%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M126%2072%20L142%2072%20L148%2064%20L172%2064%20L178%2072%20L194%2072%20Q198%2072%20198%2076%20L198%20106%20Q198%20110%20194%20110%20L126%20110%20Q122%20110%20122%20106%20L122%2076%20Q122%2072%20126%2072%20Z%22%2F%3E%3Ccircle%20cx%3D%22160%22%20cy%3D%2289%22%20r%3D%2212%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22160%22%20y%3D%22150%22%20text-anchor%3D%22middle%22%20font-family%3D%22Hanken%20Grotesk%2Csans-serif%22%20font-size%3D%2213%22%20letter-spacing%3D%222%22%20fill%3D%22%236B6356%22%3EPREVIEW%3C%2Ftext%3E%3C%2Fsvg%3E" placeholder="16:9" style="display:block;width:100%;height:100%;"></image-slot></div>
-      </div>
-    </div>
-  </div>
   </section>
 
 </div>
@@ -602,6 +603,7 @@
       <a href="#home"   class="foot-link" style="color:var(--text-on-dark);text-decoration:none;transition:color .2s var(--ease-soft);" style-hover="color:var(--gold-400);">Home</a>
       <a href="#about"  class="foot-link" style="color:var(--text-on-dark);text-decoration:none;transition:color .2s var(--ease-soft);" style-hover="color:var(--gold-400);">About</a>
       <a href="#works"  class="foot-link" style="color:var(--text-on-dark);text-decoration:none;transition:color .2s var(--ease-soft);" style-hover="color:var(--gold-400);">Works</a>
+      <a href="#other-works" class="foot-link" style="color:var(--text-on-dark);text-decoration:none;transition:color .2s var(--ease-soft);" style-hover="color:var(--gold-400);">My other Works</a>
       <a href="#resume" class="foot-link" style="color:var(--text-on-dark);text-decoration:none;transition:color .2s var(--ease-soft);" style-hover="color:var(--gold-400);">Résumé</a>
       <a href="#home"   class="foot-link" style="color:var(--gold-400);text-decoration:none;transition:color .2s var(--ease-soft);" style-hover="color:var(--paper-100);">↑ Back to top</a>
     </nav>
@@ -669,6 +671,7 @@ class Component extends DCLogic {
       { id: 'home', label: 'Home' },
       { id: 'about', label: 'About' },
       { id: 'works', label: 'Works' },
+      { id: 'other-works', label: 'My other Works' },
       { id: 'resume', label: 'Résumé' },
     ];
     const goTo = (id) => {
@@ -687,6 +690,10 @@ class Component extends DCLogic {
       { id: 'photo-4', filename: 'Landing Page using Claude Design' },
       { id: 'photo-5', filename: 'Matching Invoice' },
       { id: 'photo-6', filename: 'Research Findings' },
+      { id: 'photo-7', filename: 'Freshman Treat Bookmark 1' },
+      { id: 'photo-8', filename: 'Freshman Treat Bookmark 2' },
+      { id: 'photo-9', filename: 'Freshman Treat Bookmark 3' },
+      { id: 'photo-10', filename: 'Freshman Treat Bookmark 4' },
     ];
     const lb = this.state.lightbox;
     let lbSrc = null, lbFile = null;
@@ -704,7 +711,7 @@ class Component extends DCLogic {
       wtSrc = (_img && _img.getAttribute('src') && _img.style.display !== 'none') ? _img.getAttribute('src') : null;
       wtImg = wtSrc ? React.createElement('img', { src: wtSrc, alt: '', style: { maxWidth: '80vw', maxHeight: '72vh', width: 'auto', height: 'auto', display: 'block', objectFit: 'contain', border: '6px solid var(--paper-000)', boxShadow: '0 30px 70px -22px rgba(0,0,0,0.7)' } }) : null;
       wtCount = (wi + 1) + ' / ' + this._wtIds.length;
-      const _F = { t1l16a:'Listing', t1l9a:'Phone mode', t1l16b:'Inquiry', t1l9b:'Inquire', t1l16c:'Scroll Animation', t1l9c:'Mobile mode', t1a16a:'Admin URL', t1a9a:'Backend', t1a16b:'Password', t1a9b:'Password (2)', t2l16a:'Website', t2l9a:'On Phone', t2l16b:'Kids Fashion', t2l9b:'Mobile overview', t2l16c:'About us', t2l9c:'About us (2)', 'acc-1':'github.png', 'acc-2':'vercel.png', 'acc-3':'claude-ai.png', 'acc-4':'doppler.png' };
+      const _F = { t1l16a:'Listing', t1l9a:'Phone mode', t1l16b:'Inquiry', t1l9b:'Inquire', t1l16c:'Scroll Animation', t1l9c:'Mobile mode', t1a16a:'Admin Dashboard', t1a9a:'Backend', t1a16b:'Password', t1a9b:'Password (2)', t1be1:'Supabase Backend', t1be2:'Resend Backend', t1be3:'Automated Email · Listing', t1be4:'Morning Briefing', t2l16a:'Website', t2l9a:'On Phone', t2l16b:'Kids Fashion', t2l9b:'Mobile overview', t2l16c:'About us', t2l9c:'About us (2)', 'acc-1':'github.png', 'acc-2':'vercel.png', 'acc-3':'claude-ai.png', 'acc-4':'doppler.png' };
       wtFile = _F[this._wtIds[wi]] || this._wtIds[wi];
     }
     const open = (i) => () => this.setState({ lightbox: i });
@@ -716,16 +723,16 @@ class Component extends DCLogic {
       openResume: () => { window.open('assets/resume.pdf', '_blank', 'noopener'); },
       fanClass: this.state.folderOpen ? 'is-open' : '',
       toggleFolder: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.setState((st) => ({ folderOpen: !st.folderOpen })); },
-      p1: open(0), p2: open(1), p3: open(2), p4: open(3), p5: open(4), p6: open(5),
+      p1: open(0), p2: open(1), p3: open(2), p4: open(3), p5: open(4), p6: open(5), p7: open(6), p8: open(7), p9: open(8), p10: open(9),
       lbOpen: lb != null,
       lbSrc,
-      lbImg: lbSrc ? React.createElement('img', { src: lbSrc, alt: '', style: { width: '100%', height: '100%', objectFit: 'cover', display: 'block' } }) : null,
+      lbImg: lbSrc ? React.createElement('img', { src: lbSrc, alt: '', style: { maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto', objectFit: 'contain', display: 'block' } }) : null,
       lbEmpty: lb != null && !lbSrc,
       lbFile,
       lbCount: lb != null ? (lb + 1) + ' / ' + photos.length : '',
       closeLightbox: () => this.setState({ lightbox: null }),
-      prevPhoto: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.setState((st) => ({ lightbox: (st.lightbox + 5) % 6 })); },
-      nextPhoto: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.setState((st) => ({ lightbox: (st.lightbox + 1) % 6 })); },
+      prevPhoto: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.setState((st) => ({ lightbox: (st.lightbox + photos.length - 1) % photos.length })); },
+      nextPhoto: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.setState((st) => ({ lightbox: (st.lightbox + 1) % photos.length })); },
       stop: (e) => { if (e && e.stopPropagation) e.stopPropagation(); },
       wtViewOpen: wi != null,
       wtImg,
@@ -753,6 +760,11 @@ class Component extends DCLogic {
       this.setState({ wtIndex: all.indexOf(f) });
     };
     document.addEventListener('click', this._onTileClick);
+    this._setFolderHint = (set, open) => { const fb = set.querySelector('.wt-folder'); if (fb) { fb.setAttribute('aria-expanded', open ? 'true' : 'false'); const hh = fb.querySelector('.wt-folder-hint'); if (hh) hh.textContent = open ? 'CLICK TO CLOSE' : 'CLICK TO OPEN'; } };
+    this._onFolderClick = (e) => { const b = e.target.closest && e.target.closest('.wt-folder'); if (!b) return; const set = b.closest('.wt-folderset'); if (!set) return; const willOpen = !set.classList.contains('is-open'); if (willOpen) document.querySelectorAll('.wt-folderset.is-open').forEach((o) => { if (o !== set) { o.classList.remove('is-open'); this._setFolderHint(o, false); } }); set.classList.toggle('is-open'); this._setFolderHint(set, willOpen); };
+    document.addEventListener('click', this._onFolderClick);
+    this._onVideoTileClick = (e) => { const t = e.target.closest && e.target.closest('.wt-videotile'); if (!t) return; const id = t.getAttribute('data-drivevid'); if (id) this._openDriveModal(id); };
+    document.addEventListener('click', this._onVideoTileClick);
     this._nv = 6; this._vc = 2; this._vidPaused = false;
     this._vidIds = ['1o9B69GmMGzyh81Gqd_OFahgeFLKzRWmK','1136QtsG8mjX09__vxfmvN6XqlQQgypZd','1uJm4L29b93lqq31jgKYOwyvZRxU9q6nB','1NPrtbQYYY4iZiMnJeN_7xcZIYNCFOm0K','1MeKqaeba35LspgWcZ6TI3lfY7yF2X9Dn','1RU2Kj2TTcUTzw4BrbZtxPLLc2FL273B8'];
     this._vidMeta = [{t:'Reel 01',f:'reel-01.mp4'},{t:'Reel 02',f:'reel-02.mp4'},{t:'Reel 03',f:'reel-03.mp4'},{t:'Reel 04',f:'reel-04.mp4'},{t:'Reel 05',f:'reel-05.mp4'},{t:'Reel 06',f:'reel-06.mp4'}];
@@ -875,6 +887,25 @@ class Component extends DCLogic {
     if (ov) ov.remove();
     if (this._vidEsc) { document.removeEventListener('keydown', this._vidEsc); this._vidEsc = null; }
     setTimeout(() => { this._vidPaused = false; }, 600);
+  }
+
+  _openDriveModal(id) {
+    const old = document.getElementById('vid-modal'); if (old) old.remove();
+    const ov = document.createElement('div');
+    ov.id = 'vid-modal';
+    ov.setAttribute('style', 'position:fixed;inset:0;z-index:300;background:rgba(21,18,14,0.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:32px;');
+    const frame = document.createElement('div');
+    frame.setAttribute('style', 'position:relative;background:#000;border:2px solid var(--paper-100);border-radius:14px;overflow:hidden;width:min(92vw,1100px);aspect-ratio:16 / 9;box-shadow:0 40px 90px -30px rgba(0,0,0,0.85);');
+    frame.innerHTML = '<iframe src="https://drive.google.com/file/d/' + id + '/preview" allow="autoplay; encrypted-media; fullscreen" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0;"></iframe>';
+    const back = document.createElement('button');
+    back.textContent = '\u2190 Back';
+    back.setAttribute('style', "font-family:'Shantell Sans',cursive;font-weight:700;font-size:17px;color:#15120E;background:#FBF8F1;border:2px solid #15120E;border-radius:999px;padding:11px 28px;cursor:pointer;box-shadow:0 12px 26px -12px rgba(0,0,0,0.6);");
+    back.addEventListener('click', () => this._closeVid());
+    ov.appendChild(frame); ov.appendChild(back);
+    ov.addEventListener('click', (e) => { if (e.target === ov) this._closeVid(); });
+    this._vidEsc = (e) => { if (e.key === 'Escape') this._closeVid(); };
+    document.addEventListener('keydown', this._vidEsc);
+    document.body.appendChild(ov);
   }
 
   _onScroll() {
