@@ -1,0 +1,75 @@
+/* ============================================================
+   MOTION — Sketchbook Design System
+   Atmospheric, warm, playful — never sharp or corporate.
+   Smooth hover transitions everywhere; gentle ambient loops
+   (twinkling sparkles, drifting). Press = a small, soft shrink.
+   ============================================================ */
+
+:root {
+  /* Durations */
+  --dur-fast: 0.18s;     /* @kind other */
+  --dur-base: 0.3s;      /* @kind other */
+  --dur-slow: 0.6s;      /* @kind other */
+  --dur-draw: 1.1s;      /* @kind other */
+
+  /* Easing — soft, hand-eased, slightly springy. No harsh snaps. */
+  --ease-soft: cubic-bezier(0.33, 0, 0.2, 1);     /* @kind other */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);      /* @kind other */
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.5, 1); /* @kind other */
+  --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);   /* @kind other */
+
+  /* Semantic transitions */
+  --t-hover: all var(--dur-base) var(--ease-soft);  /* @kind other */
+  --t-press: transform var(--dur-fast) var(--ease-spring); /* @kind other */
+
+  /* Interaction transforms */
+  --press-scale: 0.97;      /* @kind other */
+  --hover-lift: -2px;       /* @kind other */
+  --hover-tilt: -1.2deg;    /* @kind other */
+}
+
+/* ---- Ambient keyframes (shipped for reuse) ---- */
+
+/* Twinkling stars / sparkles */
+@keyframes sk-twinkle {
+  0%, 100% { opacity: 0.25; transform: scale(0.7); }
+  50%      { opacity: 1;    transform: scale(1); }
+}
+
+/* Gentle hand-drawn wiggle (for hovered letters / doodles) */
+@keyframes sk-wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25%      { transform: rotate(-2.5deg); }
+  75%      { transform: rotate(2.5deg); }
+}
+
+/* Slow ambient float */
+@keyframes sk-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+/* Hand-drawn stroke reveal (use with stroke-dasharray on SVG) */
+@keyframes sk-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Soft fade + rise (scroll reveal) */
+@keyframes sk-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Marquee scroll (skills band) */
+@keyframes sk-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

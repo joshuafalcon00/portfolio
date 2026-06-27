@@ -1,0 +1,56 @@
+/* ============================================================
+   EFFECTS — Sketchbook Design System
+   Borders are HAND-DRAWN, not slick. Radii are near-zero or
+   irregular. Shadows are soft, warm, and rare — depth comes
+   from a slight tilt + the dotted-grid behind, not elevation.
+   ============================================================ */
+
+:root {
+  /* Radii — mostly square; sketch "pills" use a tiny irregular round */
+  --radius-none: 0px;
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-pill: 999px;          /* tag/chip sketch pills */
+  /* Irregular hand-drawn corner (apply as border-radius shorthand) */
+  --radius-sketch: 14px 10px 16px 8px / 8px 16px 10px 14px;
+  --radius-sketch-2: 9px 15px 7px 13px / 13px 8px 14px 9px;
+
+  /* Border weights — like a felt-tip / fineliner stroke */
+  --bd-fine: 1.5px;              /* @kind other */
+  --bd-ink: 2px;                 /* @kind other */
+  --bd-bold: 3px;                /* @kind other */
+  --border-ink: var(--bd-ink) solid var(--line-ink);
+  --border-fine: var(--bd-fine) solid var(--line-hairline);
+  --border-dashed: var(--bd-fine) dashed var(--line-ink); /* stitched/postcard edge */
+
+  /* Shadows — soft, warm, sparingly used. No hard grey UI shadows. */
+  --shadow-none: none;
+  --shadow-paper: 0 1px 0 rgba(21,18,14,0.04);
+  --shadow-lift: 0 10px 24px -12px rgba(21,18,14,0.28);   /* hovered card */
+  --shadow-tape: 0 14px 30px -16px rgba(21,18,14,0.32);   /* taped photo */
+  --shadow-warm: 0 18px 40px -20px rgba(192,83,59,0.22);  /* rare warm glow */
+
+  /* Sketch-card tilt presets (taped-photo feel) */
+  --tilt-a: -1.6deg;  /* @kind other */
+  --tilt-b: 1.4deg;   /* @kind other */
+  --tilt-c: -0.8deg;  /* @kind other */
+
+  /* Highlighter swipe (behind emphasised words) */
+  --highlight: var(--accent-soft);
+}
+
+/* ---- Utility: hand-drawn outline box (irregular sketch border) ---- */
+.sk-sketchbox {
+  border: var(--border-ink);
+  border-radius: var(--radius-sketch);
+  background: transparent;
+}
+
+/* ---- Utility: highlighter swipe behind inline text ---- */
+.sk-highlight {
+  background-image: linear-gradient(120deg, transparent 0.2em, var(--highlight) 0.2em, var(--highlight) calc(100% - 0.15em), transparent calc(100% - 0.15em));
+  background-repeat: no-repeat;
+  padding: 0 0.05em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}

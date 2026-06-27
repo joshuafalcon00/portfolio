@@ -1,0 +1,23 @@
+# Secrets / env — never commit
+.env
+.env.*
+*.key
+*.pem
+secrets.*
+
+# Dependencies / build
+node_modules/
+dist/
+build/
+.vercel/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/

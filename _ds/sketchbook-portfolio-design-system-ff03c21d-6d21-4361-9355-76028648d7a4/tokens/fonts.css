@@ -1,0 +1,11 @@
+/* ============================================================
+   FONTS — Sketchbook Design System
+   Two faces carry the identity:
+   1. Shantell Sans — a hand-drawn-but-clean variable face
+      (the "doodle but clean" signature). Display, nav, labels.
+   2. Hanken Grotesk — a warm, legible humanist grotesque for
+      paragraph body and dense UI text. Not geometric, not Inter.
+   Both are served from Google Fonts. See readme.md → FONT NOTE.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&family=Hanken+Grotesk:ital,wght@0,300..800;1,400..600&display=swap');

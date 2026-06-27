@@ -1,0 +1,80 @@
+/* ============================================================
+   COLORS — Sketchbook Design System
+   Black-dominant ink on warm paper. White supports.
+   Accents are rare, "light color" pops: gold, sky, brick.
+   NEVER pink / purple / violet / peach.
+   ============================================================ */
+
+:root {
+  /* --- Ink (the dominant color — warm near-black, like fountain-pen ink) --- */
+  --ink-900: #15120E;   /* deepest ink — full-bleed dark sections, headlines */
+  --ink-800: #211C16;   /* primary ink — body of dark surfaces */
+  --ink-700: #2E281F;   /* raised dark surface */
+  --ink-600: #4A4339;   /* secondary ink on paper */
+  --ink-500: #6B6356;   /* muted / caption ink */
+  --ink-400: #938B7C;   /* faint ink, disabled */
+  --ink-300: #C2BBAD;   /* hairline, dotted-grid dots on paper */
+
+  /* --- Paper (warm off-whites — the sketchbook page) --- */
+  --paper-000: #FFFFFF; /* pure white — card surfaces, reversed text */
+  --paper-100: #FBF8F1; /* primary page paper — warm cream */
+  --paper-200: #F4EFE4; /* sunken paper / subtle fill */
+  --paper-300: #EBE4D5; /* paper edge / divider tint */
+
+  /* --- Accents (used sparingly — black & white carry the work) --- */
+  /* Gold / mustard — THE signature accent (Moonrise Kingdom, Mackesy gold).
+     The rarest, most precious pop: active states, the "sun", highlights. */
+  --gold-500: #E0A82E;
+  --gold-400: #EBBE54;
+  --gold-200: #F6E3AC;  /* gold wash / highlighter swipe */
+
+  /* Sky — secondary cool accent (Mackesy skies). Calm, ambient. */
+  --sky-500: #6E97B0;
+  --sky-300: #AEC8D6;
+  --sky-100: #DDE9F0;   /* sky wash */
+
+  /* Brick — rare warm-red exclamation (Snoopy red, Moonrise red). */
+  --brick-500: #C0533B;
+  --brick-300: #DC9685;
+
+  /* ============================================================
+     SEMANTIC ALIASES — author against these
+     ============================================================ */
+
+  /* Surfaces & backgrounds */
+  --bg-page: var(--paper-100);        /* default sketchbook page */
+  --bg-page-dark: var(--ink-900);     /* full-bleed dark "night" section */
+  --surface-card: var(--paper-000);   /* taped-photo / sketch card */
+  --surface-sunken: var(--paper-200);
+  --surface-raised-dark: var(--ink-700);
+
+  /* Text / ink */
+  --text-strong: var(--ink-900);      /* headlines on paper */
+  --text-body: var(--ink-800);        /* body copy on paper */
+  --text-muted: var(--ink-500);       /* captions, secondary */
+  --text-faint: var(--ink-400);       /* disabled, watermarks */
+  --text-on-dark: var(--paper-100);   /* body on dark sections */
+  --text-on-dark-muted: #B7AE9D;      /* muted on dark */
+
+  /* Lines & marks */
+  --line-ink: var(--ink-900);         /* hand-drawn outlines, borders */
+  --line-hairline: var(--ink-300);    /* faint rules, dividers */
+  --grid-dot: var(--ink-300);         /* dotted-grid texture */
+  --grid-dot-dark: #38322A;           /* dotted grid on dark sections */
+
+  /* Accent semantics */
+  --accent: var(--gold-500);          /* primary accent — active, highlight */
+  --accent-soft: var(--gold-200);     /* highlighter wash behind text */
+  --accent-cool: var(--sky-500);      /* secondary ambient accent */
+  --accent-cool-soft: var(--sky-100);
+  --accent-pop: var(--brick-500);     /* rare exclamation */
+
+  /* Interaction tints */
+  --press-tint: rgba(21, 18, 14, 0.06); /* darken-on-press over paper */
+  --hover-tint: rgba(21, 18, 14, 0.04);
+  --focus-ring: var(--gold-500);
+
+  /* Sparkle / star color (twinkling background) */
+  --sparkle: var(--gold-400);
+  --sparkle-soft: var(--paper-000);
+}

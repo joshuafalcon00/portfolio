@@ -1,0 +1,51 @@
+/* ============================================================
+   SPACING & LAYOUT — Sketchbook Design System
+   Generous, breathing, slow-paced. One idea per area.
+   Lots of negative space — content "floats" on the page.
+   Base unit: 4px.
+   ============================================================ */
+
+:root {
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+  --space-11: 160px;   /* section breathing room */
+  --space-12: 200px;   /* full-section vertical padding */
+
+  /* Semantic spacing */
+  --gap-inline: var(--space-3);     /* between inline siblings (buttons, chips) */
+  --gap-stack: var(--space-5);      /* between stacked blocks */
+  --gap-section: var(--space-11);   /* between major sections */
+  --pad-card: var(--space-5);       /* card inner padding */
+  --pad-control: 14px 22px;         /* button / input padding */
+
+  /* Layout widths */
+  --measure: 62ch;                  /* readable paragraph measure */
+  --container: 1200px;              /* max content width */
+  --container-wide: 1440px;
+
+  /* ---- Background texture: the dotted-grid page ---- */
+  --grid-size: 26px;                /* spacing of the dotted grid */
+  --grid-dot-r: 1px;                /* dot radius */
+}
+
+/* Reusable dotted-grid surface — apply .sk-grid to any element */
+.sk-grid {
+  background-color: var(--bg-page);
+  background-image: radial-gradient(var(--grid-dot) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+  background-position: 0 0;
+}
+.sk-grid--dark {
+  background-color: var(--bg-page-dark);
+  background-image: radial-gradient(var(--grid-dot-dark) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+}
