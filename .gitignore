@@ -21,3 +21,5 @@ Thumbs.db
 desktop.ini
 .idea/
 .vscode/
+
+.vercel
