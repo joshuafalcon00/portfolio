@@ -91,7 +91,7 @@ test('Portfolio QA — capstone-gated', async ({ page, baseURL }) => {
     await popup.close().catch(() => {});
   }
   add('CAPSTONE 3 — Download button opens/downloads a .pdf', opensOrDownloads, dlDetail, true);
-  const pdfResp = await page.request.get((baseURL || '') + '/assets/resume.pdf');
+  const pdfResp = await page.request.get((baseURL || '') + '/assets/joshua-falcon-resume.pdf');
   const pdfBuf = await pdfResp.body().catch(() => Buffer.from(''));
   add('CAPSTONE 3 — resume.pdf is a real PDF',
     pdfResp.status() === 200 && pdfBuf.slice(0, 4).toString() === '%PDF',

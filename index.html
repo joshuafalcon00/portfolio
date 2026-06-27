@@ -852,7 +852,7 @@
   <div data-reveal="" data-delay="200" style="margin-top:46px;display:flex;justify-content:center;">
     <x-import component-from-global-scope="SketchbookPortfolioDesignSystem_ff03c2.Button" variant="gold" arrow="{{ true }}" size="lg" on-click="{{ openResume }}" hint-size="auto,58px">Download Résumé</x-import>
   </div>
-  <div data-reveal="" data-delay="260" style="margin-top:16px;font:var(--type-filename);color:var(--text-muted);">resume.pdf</div>
+  <div data-reveal="" data-delay="260" style="margin-top:16px;font:var(--type-filename);color:var(--text-muted);">joshua-falcon-resume.pdf</div>
 </div>
 
 <!-- ============================ FIREWORKS FINALE (fires on reaching page bottom) ============================ -->
@@ -992,7 +992,7 @@ class Component extends DCLogic {
       active: this.state.active,
       goTo,
       noop: () => {},
-      openResume: () => { const a = document.createElement('a'); a.href = 'assets/resume.pdf'; a.download = 'joshua-falcon-resume.pdf'; a.target = '_blank'; a.rel = 'noopener'; document.body.appendChild(a); a.click(); a.remove(); },
+      openResume: () => { const a = document.createElement('a'); a.href = 'assets/joshua-falcon-resume.pdf'; a.download = 'joshua-falcon-resume.pdf'; a.target = '_blank'; a.rel = 'noopener'; document.body.appendChild(a); a.click(); a.remove(); },
       fanClass: this.state.folderOpen ? 'is-open' : '',
       toggleFolder: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.setState((st) => ({ folderOpen: !st.folderOpen })); },
       p1: open(0), p2: open(1), p3: open(2), p4: open(3), p5: open(4), p6: open(5), p7: open(6), p8: open(7), p9: open(8), p10: open(9),

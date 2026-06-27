@@ -1,7 +1,7 @@
 # Portfolio QA report
 
-- Target: `http://127.0.0.1:8799`
-- Run: 2026-06-27T16:03:11.169Z
+- Target: `https://portfolio-rouge-rho-36.vercel.app`
+- Run: 2026-06-27T16:15:41.576Z
 - Result: **PASS ✅**
 
 ## Capstone rules (non-negotiable)
@@ -11,7 +11,7 @@
 | ✅ | **CAPSTONE 2 — Arca block present + "Made for Arca.ph"** | href=https://arca.ph |
 | ✅ | **CAPSTONE 2 — links to https://arca.ph** | https://arca.ph |
 | ✅ | **CAPSTONE 2 — Arca is the last element** | lastChildOfFooter=true, nothingAfter=true |
-| ✅ | **CAPSTONE 3 — Download button opens/downloads a .pdf** | download: joshua-falcon-resume.pdf |
+| ✅ | **CAPSTONE 3 — Download button opens/downloads a .pdf** | download: resume.pdf |
 | ✅ | **CAPSTONE 3 — resume.pdf is a real PDF** | status=200 bytes=2466673 |
 
 ## All checks
@@ -24,7 +24,7 @@
 | ✅ | **CAPSTONE 2 — Arca block present + "Made for Arca.ph"** | href=https://arca.ph |
 | ✅ | **CAPSTONE 2 — links to https://arca.ph** | https://arca.ph |
 | ✅ | **CAPSTONE 2 — Arca is the last element** | lastChildOfFooter=true, nothingAfter=true |
-| ✅ | **CAPSTONE 3 — Download button opens/downloads a .pdf** | download: joshua-falcon-resume.pdf |
+| ✅ | **CAPSTONE 3 — Download button opens/downloads a .pdf** | download: resume.pdf |
 | ✅ | **CAPSTONE 3 — resume.pdf is a real PDF** | status=200 bytes=2466673 |
 | ✅ | Live link OK: https://falconhomes-landing-page.vercel.app/ | status=200 |
 | ✅ | Live link OK: https://kids-fashion-website.vercel.app/ | status=200 |
