@@ -11,6 +11,11 @@ dist/
 build/
 .vercel/
 
+# Playwright QA
+test-results/
+playwright-report/
+/tests/screenshots/
+
 # Logs
 *.log
 npm-debug.log*

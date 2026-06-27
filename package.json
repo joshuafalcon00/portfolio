@@ -1,0 +1,13 @@
+{
+  "name": "joshua-falcon-portfolio-qa",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Playwright QA suite for the Joshua Falcon portfolio (capstone-gated).",
+  "scripts": {
+    "test": "playwright test",
+    "test:report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0"
+  }
+}

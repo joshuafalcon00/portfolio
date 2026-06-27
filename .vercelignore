@@ -1,0 +1,9 @@
+# Keep the Vercel deploy a static site — don't upload the Playwright/test infra
+# (so Vercel doesn't detect package.json and switch to a build project).
+node_modules
+package.json
+package-lock.json
+playwright.config.ts
+tests
+playwright-report
+test-results

@@ -855,6 +855,9 @@
   <div data-reveal="" data-delay="260" style="margin-top:16px;font:var(--type-filename);color:var(--text-muted);">resume.pdf</div>
 </div>
 
+<!-- ============================ FIREWORKS FINALE (fires on reaching page bottom) ============================ -->
+<canvas id="fireworks" aria-hidden="true"></canvas>
+
 <!-- ============================ FOOTER (end of page) ============================ -->
 <footer class="sk-grid--dark" style="position:relative;z-index:0;padding:92px 32px 100px;text-align:center;">
   <div class="star-layer" aria-hidden="true">
@@ -885,9 +888,6 @@
     </a>
   </div>
 </footer>
-
-<!-- ============================ FIREWORKS FINALE (fires on reaching page bottom) ============================ -->
-<canvas id="fireworks" aria-hidden="true"></canvas>
 
 <!-- ============================ LIGHTBOX ============================ -->
 <sc-if value="{{ lbOpen }}" hint-placeholder-val="{{ false }}">
