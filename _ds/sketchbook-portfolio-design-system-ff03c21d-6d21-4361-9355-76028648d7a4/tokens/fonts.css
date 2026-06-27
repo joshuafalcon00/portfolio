@@ -6,6 +6,9 @@
    2. Hanken Grotesk — a warm, legible humanist grotesque for
       paragraph body and dense UI text. Not geometric, not Inter.
    Both are served from Google Fonts. See readme.md → FONT NOTE.
-   ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&family=Hanken+Grotesk:ital,wght@0,300..800;1,400..600&display=swap');
+   NOTE: the Google Fonts request that used to live here as an
+   @import is now a non-render-blocking <link> in index.html's
+   <head> (media="print" onload swap). Keeping it here forced a
+   serialized, render-blocking fetch (~175ms). Don't re-add it.
+   ============================================================ */
